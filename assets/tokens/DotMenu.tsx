@@ -19,10 +19,10 @@ export default function DotMenu(props: DotMenuProps & HTMLAttributes<HTMLDivElem
     );
   } else {
     return (
-      <svg className={className} width="9" height="25">
+      <svg className={className} width="9" height="20">
         <rect x="3" y="0" width="3" height="3" fill={fill}/>
-        <rect x="3" y="11.5" width="3" height="3" fill={fill}/>
-        <rect x="3" y="22" width="3" height="3" fill={fill}/>
+        <rect x="3" y="8.5" width="3" height="3" fill={fill}/>
+        <rect x="3" y="17" width="3" height="3" fill={fill}/>
       </svg>
     );
   }

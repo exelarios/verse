@@ -1,9 +1,26 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useCallback, useMemo, useState } from "react";
 
 import Card from "@verse/components/Card";
 
+import Squares from "assets/tokens/Squares";
+
+const TEMP_ADDRESS = "0xfC4b619a481E139CfC4fC54E0E7218F8c393bDE5";
+
 const Home: NextPage = () => {
+
+  const [walletAddress, setWalletAddress] = useState(TEMP_ADDRESS);
+
+  const shortenAddress = useMemo(() => {
+    const length = walletAddress.length;
+    return `${walletAddress.slice(0, 7)}...${walletAddress.slice(length - 5)}`
+  }, [walletAddress]);
+
+  const handleCopyAddress = useCallback(() => {
+    window.navigator.clipboard.writeText(walletAddress);
+  }, [walletAddress]);
+
   return (
     <div>
       <Head>
@@ -13,14 +30,16 @@ const Home: NextPage = () => {
       </Head>
 
       <nav>
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-10">
           <div>
             <button>add</button>
           </div>
           <div>
-            <div>
-              <h3 className="text-right">notderic</h3>
-              <h5 className="text-right">3434390g340g9345g</h5>
+            <div className="flex gap-x-2">
+              <h5 className="text-right">{shortenAddress}</h5>
+              <button onClick={handleCopyAddress}>
+                <Squares/>
+              </button>
             </div>
           </div>
         </div>
