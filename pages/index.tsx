@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav>
+      <nav className="m-2">
         <div className="flex justify-between mt-10">
           <div>
             <button>add</button>
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         <hr className="my-2 mb-6"/>
       </nav>
       <main className="max-w-max mx-auto">
-        <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-4">
           <Card
             userId="1"
             username="bobthebuilder"
@@ -66,7 +66,6 @@ const Home: NextPage = () => {
         </div>
       </main>
       <footer className="m-5">
-        <hr className="mb-2"/>
         <span className="text-sm">© 2022 Verse</span>
       </footer>
     </div>
